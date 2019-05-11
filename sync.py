@@ -7,7 +7,6 @@ import logging
 import sys
 import urllib
 
-import CloudFlare
 import requests
 from CloudFlare import CloudFlare
 
@@ -23,7 +22,7 @@ def main(argv):
     config = configparser.ConfigParser()
     config.read_file(open(args.config))
 
-    cf = CloudFlare.CloudFlare(
+    cf = CloudFlare(
         email=config['cloudflare']['CF_API_EMAIL'],
         token=config['cloudflare']['CF_API_KEY'])
 
@@ -56,7 +55,7 @@ def get_zone_id(cf, config):
 def parse_args(argv):
     options = argparse.ArgumentParser()
     options.add_argument("--verbose", '-v', default=False, action='store_true')
-    options.add_argument("config", default=CONFIG_FILE)
+    options.add_argument("--config", default=CONFIG_FILE)
     args = options.parse_args(argv[1:])
     if args.verbose:
         logging.getLogger('').setLevel(logging.DEBUG)
