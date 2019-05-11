@@ -1,0 +1,10 @@
+[Unit]
+Description=CloudFlare-DynDNS
+
+[Service]
+Type=oneshot
+WorkingDirectory=DIR
+ExecStart=DIR/sync.py
+Environment=PYTHONUNBUFFERED=1
+WorkingDirectory=DIR
+RestartSec=3

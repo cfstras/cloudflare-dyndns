@@ -1,0 +1,10 @@
+[Unit]
+Description=CloudFlare-DynDNS Timer
+After=network.target
+
+[Timer]
+OnBootSec=60s
+OnUnitInactiveSec=24h
+
+[Install]
+WantedBy=default.target
