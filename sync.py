@@ -96,9 +96,12 @@ def build_records(sections):
 
 
 def query_external_ip(section):
-    ip = requests.get(section['ip_endpoint']).text
-    return ip
-
+    if section.get('ip_endpoint'):
+        return requests.get(section['ip_endpoint']).text
+    elif section.get('value'):
+        return section['value']
+    else:
+        logging.error('Neither "ip_endpoint" nor "value" specified for %s', section)
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))

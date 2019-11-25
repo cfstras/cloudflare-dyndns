@@ -24,7 +24,8 @@ install_service() {
 
     echo "### Enablinng systemd timer"
     systemctl --user daemon-reload
-    systemctl --user reenable --now "$TIMER"
+    systemctl --user enable "$TIMER"
+    systemctl --user start "$TIMER"
 }
 
 check_linger() {
