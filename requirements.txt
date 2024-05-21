@@ -6,6 +6,6 @@ future==0.18.3
 idna==3.7
 jsonlines==1.2.0
 PyYAML==5.4
-requests==2.31.0
+requests==2.32.0
 six==1.12.0
 urllib3==1.26.18
